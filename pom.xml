@@ -34,5 +34,17 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.1.4.jre7</version>
 		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>1.8.0-beta0</version>
+		</dependency>
 	</dependencies>
 </project>

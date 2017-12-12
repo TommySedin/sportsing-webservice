@@ -14,6 +14,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.sportsing.api.Match;
 import com.sportsing.entities.ContenderResultEJB;
 import com.sportsing.entities.ContenderResultJPA;
@@ -23,6 +26,7 @@ import com.sportsing.entities.MatchJPA;
 @RequestScoped
 @Path("matches")
 public class MatchService {
+	private static final Logger log = LoggerFactory.getLogger(MatchService.class);
 
 	@EJB private MatchEJB matchEJB;
 
@@ -39,6 +43,7 @@ public class MatchService {
 			result.add(matchDTO);
 		}
 
+		log.debug("Returning {} matches.", result.size());
 		matchEJB = null;
 		return result;
 	}
