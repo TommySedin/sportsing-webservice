@@ -23,5 +23,18 @@ public class MatchEJB {
 		TypedQuery<MatchJPA> q = em.createQuery("SELECT m FROM MatchJPA AS m", MatchJPA.class);
 		return q.getResultList();
 	}
+	public MatchJPA findById(int id) {
+		TypedQuery<MatchJPA> q = em.createQuery("SELECT m FROM MatchJPA AS m WHERE m.id = :id", MatchJPA.class);
+		q.setParameter("id", id);
+		return q.getSingleResult();
+	}
 
+	public MatchJPA merge(MatchJPA match) {
+		return em.merge(match);
+	}
+	
+	public void delete(int id) {
+		MatchJPA ent = findById(id);
+		em.remove(ent);
+	}
 }

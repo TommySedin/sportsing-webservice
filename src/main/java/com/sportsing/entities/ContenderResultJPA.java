@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.sportsing.api.ContenderResult;
+
 @Entity
 @Table(name="contenderresult")
 public class ContenderResultJPA {
@@ -24,6 +26,13 @@ public class ContenderResultJPA {
 	@JoinColumn(name="matchid", referencedColumnName="matchid")
 	private MatchJPA match;
 
+	public ContenderResultJPA() {}
+	public ContenderResultJPA(MatchJPA match, ContenderResult dto) {
+		this.match = match;
+		this.name = dto.getName();
+		this.score = dto.getScore();
+		this.place = dto.getPlace();
+	}
 	public int getId() { return id; }
 	public void setId(int id) { this.id = id; }
 	public String getName() { return name; }
