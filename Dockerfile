@@ -1,3 +1,6 @@
 FROM payara/server-full:latest
-COPY target/webservice.war /opt/payara41/glassfish/domains/domain1/autodeploy
+EXPOSE 9009
 
+RUN sed -i 's/start-domain/start-domain --debug=true/g' bin/startInForeground.sh
+
+COPY target/webservice.war $DEPLOY_DIR

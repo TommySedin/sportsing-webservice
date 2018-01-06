@@ -41,7 +41,6 @@ public class MatchService {
 		}
 
 		log.info("Returning {} matches.", result.size());
-
 		matchEJB = null;
 		return result;
 	}
